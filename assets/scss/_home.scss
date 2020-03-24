@@ -148,24 +148,26 @@
 #information {
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-template-rows: 100vh;
 
     .restaurant-image {
+        overflow: hidden;
+        height: 100%;
+
         img {
             width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            object-position: 0 0;
+            // max-height: 500px;
+            // object-fit: cover;
+            // object-position: 0 0;
         }
     }
 
     .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         padding: 100px 50px;
-
-        h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
 
         .paragraphs {
             display: grid;
@@ -174,7 +176,7 @@
             line-height: 1.7;
             color: #525e66;
             font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .about-link {
@@ -209,4 +211,142 @@
             }
         }
     }
+}
+
+#food-preview {
+    background: #f4f8fb;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    .button-rounded {
+        background: #ed4852;
+        color: #fff;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 30px;
+        margin-bottom: 200px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        position: relative;
+
+        .left-btn, .right-btn {
+            background: #ed4852;
+            color: #fff;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: calc(50% - 25px);
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .left-btn {
+            left: -35px;
+        }
+
+        .right-btn {
+            right: -35px;
+        }
+
+        .food-slider {
+            width: 100%;
+            font-size: 0;
+            overflow: hidden;
+
+            .sliding-system {
+                white-space: nowrap;
+                transform: translate3d(0%, 0, 0);
+
+                .slide {
+                    width: 20%;
+                    position: relative;
+                    height: 500px;
+                    cursor: pointer;
+                    display: inline-block;
+                    white-space: normal;
+        
+                    &:hover {
+                        .background {
+                            background: #ed4852;
+                            transform: translate3d(0, -200px, 0);
+                        }
+        
+                        .content {
+        
+                            .food-title {
+                                color: #fff;
+                            }
+        
+                            .food-description {
+                                color: #fff;
+                            }
+                        }
+                    }
+        
+                    .background {
+                        background: #fff;
+                        top: 0;
+                        bottom: 0;
+                        height: 100%;
+                        width: 100%;
+                        z-index: 1;
+                        position: absolute;
+                        transition: transform .3s ease-in-out;
+                    }
+        
+                    .content {
+                        z-index: 2;
+                        position: absolute;
+                        padding: 20px;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+        
+                        .food-title {
+                            font-size: 2rem;
+                            font-weight: 900;
+                            margin-bottom: 3rem;
+                            color: #ed4852;
+                        }
+                        
+                        p.food-description {
+                            font-size: .8rem;
+                            font-weight: 400;
+                            line-height: 1.8;
+                            color: #7a8d99;
+                            margin-bottom: 2rem;
+                        }
+        
+                        .food-image {
+        
+                            img {
+                                width: 95%;
+                                max-width: 250px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
